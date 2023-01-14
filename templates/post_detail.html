@@ -1,0 +1,68 @@
+{%  extends 'base.html'%}
+{%block content%}
+{% load static %}
+{%block css%}
+<link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+{%endblock%}
+
+<style>
+  a{
+    color:white;
+  }
+  h1{
+    color: white;
+  }
+  h6{
+    color: #27ae60;
+  }
+  section{
+    margin: auto;
+    padding: 6ex;
+  }
+  p{
+    color:white;
+    padding:none;
+  }
+  .social {
+    padding: 15px;
+    margin: 5px;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+  }
+  .social a{
+    font-size: 30px;
+    color: #F4FFFE;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 6px;
+    display: inline-block
+  }
+ 
+    
+    
+  </style>
+
+<section id="facts" class="facts">
+
+
+    <div>
+      <div class="bi bi-clearfix">
+        <div>
+          <h1 href="{% url 'post_detail' post.slug %}">{{post.title}}</h1>
+          <ul class="list-inline c-blog-meta">
+              <li>
+                <i class="bi bi-person-circle" href="https://www.linkedin.com/in/andrew-bassily-a11b98119/">andrew</i>&nbsp;
+                <i> {{post.created}} </i><br>
+                <h6 href="/blog/tags/python/">{{post.category}}</h6> 
+              </li>
+          </ul>
+        </div>
+      </div><br>
+      <div>{{post.description | safe }}</div>
+      
+    </div>
+</section>
+
+{%endblock%}

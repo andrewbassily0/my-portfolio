@@ -1,0 +1,33 @@
+{%  extends 'base.html'%}
+{%load static %}
+{% block css %}
+<link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+<link href="{% static 'assets/css/style0.css' %}" rel="stylesheet">
+  
+{% endblock %}
+  
+{%block content%}
+<div class="section-title">
+  <h2>Blog</h2>
+</div>
+{% for post in posts%}
+<style>
+  h3{
+    color: white;
+  }
+</style>
+<section id="facts" class="facts">
+  
+  <div class="container">
+    <div>
+      <div class="bi bi-clearfix">
+        <a href="{% url 'post_detail' post.slug %}"> <h3>{{post.title}}</h3></a>
+        <a href="https://www.linkedin.com/in/andrew-bassily-a11b98119/" class="bi bi-person-circle"> {{post.author}}</a> &nbsp;
+        <i class="bi bi-calendar2">&nbsp; {{post.created}}</i>
+      </div><br>
+      
+    </div>
+  <div>
+  </section>   
+{%endfor%}
+{%endblock%}

@@ -1,0 +1,83 @@
+
+{% extends 'base.html'%}
+{%load static %}
+{%block content %}
+{%block css%}
+<link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+<link href="{% static 'assets/css/style0.css' %}" rel="stylesheet">
+<link href="{% static 'assets/css/cont.css' %}" rel="stylesheet">
+
+
+
+{%endblock%}
+<section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Contact</h2>
+        <h1>I'd Love To Hear From You.</h1>
+      </div>
+
+      <div class="row" data-aos="fade-in">
+
+        <div class="col-lg-5 d-flex align-items-stretch">
+          <div class="info">
+            <div class="address">
+              <i class="bi bi-geo-alt"></i>
+              <h4>Location:</h4>
+              <p>Tanta,Egypt</p>
+            </div>
+
+            <div class="email">
+              <i class="bi bi-envelope"></i>
+              <h4>Email:</h4>
+              <p>andrew.bassily@hotmail.com</p>
+            </div>
+
+            <div class="phone">
+              <i class="bi bi-phone"></i>
+              <h4>Call:</h4>
+              <p>+201284066502</p>
+            </div>
+
+            <div class="github">
+                <i class="bi bi-github"></i>
+                <a href="https://github.com/andrewbassily0"><h3>andrewbassily</h3></a>
+            </div>
+<br>
+            <div class="linkedin">
+                <i class="bi bi-linkedin"></i>
+                <a href="https://www.linkedin.com/in/andrew-bassily-a11b98119/"><h3>andrewbassily</h3></a>  
+            </div>
+
+          </div>
+
+        </div>
+        {% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}
+           <script>alert("{{ message }}")</script>
+          {% endif %}
+        {% endfor %}
+         {% endif %}
+        <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+          <form action="" name="contactForm" method="POST" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <div class="contact-box">
+                <div class="left"></div>
+                <div class="right">
+                    <h2>Get in touch with me</h2>
+                    <input type="text" class="field" placeholder="Your Name" name="name">
+                    <input type="text" class="field" placeholder="Your Email" name="email">
+                    <textarea placeholder="Message" class="field" name="message"></textarea>
+                    <button class="btn">Send</button>
+                </div>
+            </div>
+        </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Contact Section -->
+{%endblock%}
